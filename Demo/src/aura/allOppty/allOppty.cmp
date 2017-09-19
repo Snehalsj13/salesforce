@@ -1,0 +1,7 @@
+<aura:component controller="OpportunityController">
+    <aura:attribute name="opportunities" type="Contact[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.getOpps}"/>
+    <aura:iteration var="opportunity" items="{!v.opportunities}">
+    	<p>{!opportunity.Name} : {!opportunity.Email}</p>
+    </aura:iteration>
+</aura:component>
