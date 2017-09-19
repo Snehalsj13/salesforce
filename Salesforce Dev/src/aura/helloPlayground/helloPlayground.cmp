@@ -1,0 +1,24 @@
+<aura:component >
+    <aura:attribute name="Messages" type="List" default="['Iphone','Laptop','Android']"/>	
+    <H1>Hello Playground</H1>
+    <p>Try attributes and expressions</p>
+    
+    <H2>List Items</H2>
+    <p><c:helloMessage message="{!v.Messages[0]}"/></p>
+    <p><c:helloMessage message="{!v.Messages[1]}"/></p>
+    <p><c:helloMessage message="{!v.Messages[2]}"/></p>
+    
+    <H2>List Iteration</H2>
+    <aura:iteration items="{!v.Messages}" var="msg">
+        <p><c:helloMessage message="{!msg}"/></p>
+    </aura:iteration>
+    
+    <H2>Conditional Expressions and Global Value Providers</H2>
+    
+    <aura:if isTrue="{!$Browser.isIPhone}">
+        <p><c:helloMessage message="{!v.Messages[0]}"/></p>
+    	<aura:set attribute="else">
+        	<p><c:helloMessage message="{!v.Messages[1]}"/></p>
+     	</aura:set>
+    </aura:if>
+</aura:component>

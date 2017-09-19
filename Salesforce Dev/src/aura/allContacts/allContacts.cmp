@@ -1,0 +1,52 @@
+<aura:component controller="fetchContacts" implements="flexipage:availableForAllPageTypes,force:appHostable">
+  <aura:attribute name="contacts" type="Contact[]"/>
+  <aura:handler name="init" value="{!this}" action="{!c.getAllContacts}"/>
+ 
+  <ltng:require styles="/resource/SLDS220/assets/styles/salesforce-lightning-design-system-ltng.css" />
+  <div class="slds">
+    <div class="slds-page-header noborderbottom" role="banner"> 
+      <div class="slds-grid">
+        <div class="slds-col slds-has-flexi-truncate">
+          <p class="slds-text-heading--label" style="padding-bottom: 4px;">Contact Items</p>
+          <div class="slds-grid">
+            <div class="slds-grid slds-type-focus slds-no-space">
+              <h1 class="slds-page-header__title slds-truncate" title="My Items" style="font-family: 'Salesforce Sans',Arial,sans-serif; font-weight: 300; padding-bottom: 5px;">My Contacts</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>   
+  </div>       
+  <div class="slds">
+    <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+      <thead>
+        <tr class="slds-text-heading--label">
+          <th scope="col" class="nobordertop" title="Contact Id">
+            <div>ID</div>
+          </th>
+          <th scope="col" class="nobordertop" title="Contact Name">
+            <div>Contact Name</div>
+          </th>
+          <th scope="col" class="nobordertop" title="Contact Email">
+            <div>Contact Email</div>
+          </th>            
+        </tr>
+      </thead>
+      <tbody>
+        <aura:iteration items="{!v.contacts}" var="con">     
+          <tr>
+            <td data-label="Id" title="id">
+                <div>{!con.Id}</div>
+            </td>
+            <td data-label="Name" title="Name">
+              <div>{!con.Name}</div>
+            </td>
+            <td data-label="Email" title="Email">
+              <div>{!con.Email}</div>
+            </td>   
+          </tr>
+        </aura:iteration>
+      </tbody>
+    </table> 
+  </div>
+</aura:component>

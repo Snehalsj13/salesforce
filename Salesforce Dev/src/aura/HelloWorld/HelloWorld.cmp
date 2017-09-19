@@ -1,0 +1,7 @@
+<aura:component >
+    <c:helloHeading />
+    <c:helloMessage message="Snehal Jadhav"/>
+	<p>Hello Lightening</p>
+    <c:helloPlayground />
+    <c:helloMessageInteractive />
+</aura:component>
